@@ -1,11 +1,16 @@
 # MAKOAUN-Skeleton (typescript)
 
 An adaptaition of the MEAN stack, this web application skeleton replaces MongoDb with MarkLogic NoSQL, Express with Koa, Angular.js with Aurelia, and requires
-Node.js v7.7.2 or later. The code is written in TypeScript.
+Node.js v7.7.2 or later.
 
 ## Dev Notes
 
-Typings: The Aurelia skeleton that the front-end code is based on uses the `npm typings` mechanism for the TypeScript declaration files while the back-end
+This is a work in progress...
+
+Node: The backend app uses Koa 2.x which uses the Async - Await construct. Node v7.7.2 natively supports Async - Await without the use of the -harmony
+flag.
+
+Typings: The Aurelia skeleton that the front-end code is based on uses the `npm typings` mechanism for the TypeScript declaration files while the backend
 code is using the npm @types mechanism for distributing the declaration files. That plan is to move away from `npm typings` once the Aurelia declaration 
 files are available in npm.
 
