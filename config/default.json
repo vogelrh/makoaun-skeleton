@@ -1,0 +1,8 @@
+{
+  "server": {
+    "staticRoot": "../client/dist",
+    "port": 3030,
+    "browserProxyPort" : 3080,
+    "apiUriPrefix": "/api/v1/"
+  }
+}

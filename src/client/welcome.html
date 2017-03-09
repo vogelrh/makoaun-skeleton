@@ -1,0 +1,48 @@
+<template>
+  <section class="au-animate">
+    <h2>${heading}</h2>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8">
+          <p>The MAKOAUN stack is an update of the MEAN stack. Both stacks are based on ES2015+ versions of JavaScript.</p>
+          <p>Both MEAN and MAKOAUN are acronyms for the following JavaScript based components:</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <ul>
+            <li>M - MongoDB NoSQL database</li>
+            <li>E - Express web app middleware</li>
+            <li>A - Angular client framework</li>
+            <li>N - Node.js execution environment</li>
+          </ul>
+        </div>
+        <div class="col-md-2">
+          <ul>
+            <li>MA - MarkLogic NoSQL database</li>
+            <li>KO - Koa web app middleware</li>
+            <li>AU - Aurelia client framework</li>
+            <li>N - Node.js execution environment</li>
+          </ul>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+            <h3>Architecture</h3>
+            <img src="./dist/client/images/MakoaunArch.png" alt="Architecture" />
+            <ul>
+            <li>The Node.js / Koa server will host the Aurelia SPA app as well as the SPA application's
+              API. 
+            </li>
+            <li>The App API middleware will in turn communicate with the MarkLogic REST API that
+              is associated with the SPA application and any other external data source. 
+            </li>
+            <li>The SPA client application does not talk directly to the MarkLogic server.</li>
+            <li>The App API middleware handles the SPA app authentication and authorization and passes
+              credentials on to the external services as needed.
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>

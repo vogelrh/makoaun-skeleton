@@ -1,0 +1,29 @@
+<template>
+  <section class="au-animate">
+    <h2>${heading}</h2>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8">
+          <p>Try different API calls.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <p>API call that just returns data with no input</p>
+          <button type="button" click.delegate="apiCall1()">Try Me</button>
+          <div>
+            <pre>${result1}</pre>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <p>TAPI call that echos what the user returns but in upper case</p>
+          <input type="text" value.bind="echoText" class="form-control" id="echo" placeholder="Type something">
+          <button type="button" click.delegate="apiCall2()">Try Me</button>
+          <div>
+            <pre>${result2}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
