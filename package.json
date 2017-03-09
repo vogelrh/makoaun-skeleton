@@ -12,16 +12,12 @@
     "marklogic",
     "node"
   ],
-  "homepage": "http://aurelia.io",
-  "bugs": {
-    "url": "https://github.com/aurelia/skeleton-navigation-typescript/issues"
-  },
   "license": "CC0-1.0",
   "author": "Mike Graham <mgraham@technicalmedia.com> (http://cmichaelgraham.io/)",
-  "main": "dist/main.js",
+  "main": "dist/server/server.js",
   "repository": {
     "type": "git",
-    "url": "http://github.com/aurelia/skeleton-navigation-typescript"
+    "url": "https://github.com/vogelrh/makoaun-skeleton"
   },
   "scripts": {
     "prepublish": "typings install",
