@@ -1,3 +1,4 @@
+/* tslint:disable:no-console */
 /**
  *  Web Server that serves an Aurelia SPA and serves the REST API
  *  for the SPA application
