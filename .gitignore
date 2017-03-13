@@ -7,6 +7,6 @@ bower_components
 build/reports
 coverage
 test/e2e/dist
-/typings/globals
-/typings/modules
+/typings
 /export
+*.log
