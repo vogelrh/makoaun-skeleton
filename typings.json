@@ -23,17 +23,9 @@
     "aurelia-templating": "github:aurelia/templating",
     "aurelia-templating-binding": "github:aurelia/templating-binding",
     "aurelia-templating-resources": "github:aurelia/templating-resources",
-    "aurelia-templating-router": "github:aurelia/templating-router",
-    "koa": "registry:dt/koa#2.0.0+20170203020909",
-    "koa-bodyparser": "registry:dt/koa-bodyparser#3.0.0+20170120190901",
-    "koa-logger": "registry:dt/koa-logger#2.0.0+20161219223325",
-    "koa-passport": "registry:dt/koa-passport#2.0.0+20170124132512",
-    "koa-router": "registry:dt/koa-router#7.0.0+20160915014424",
-    "koa-static": "registry:dt/koa-static#2.0.0+20161219223325"
+    "aurelia-templating-router": "github:aurelia/templating-router"
   },
   "globalDependencies": {
-    "node": "registry:dt/node#7.0.0+20170204020307",
-    "url": "github:aurelia/fetch-client/doc/url.d.ts#bbe0777ef710d889a05759a65fa2c9c3865fc618",
-    "whatwg-fetch": "registry:dt/whatwg-fetch#0.0.0+20160524142046"
+    "jquery": "registry:dt/jquery#1.10.0+20170310222111"
   }
 }

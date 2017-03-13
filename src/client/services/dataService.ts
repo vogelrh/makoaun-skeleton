@@ -1,5 +1,6 @@
 import * as config from './../config';
 import { autoinject } from 'aurelia-framework';
+import * as $ from 'jquery';
 
 @autoinject
 export class DataService {

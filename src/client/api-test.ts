@@ -1,5 +1,5 @@
 import { autoinject } from 'aurelia-framework';
-import { DataService } from 'services/dataService';
+import { DataService } from './services/dataService';
 
 @autoinject
 export class ApiTest {
@@ -8,7 +8,7 @@ export class ApiTest {
   public result1: string = '';
   public result2: string = '';
 
-  constructor(dataService: DataService) {
+  constructor(private dataService: DataService) {
     this.dataService = dataService;
   }
 

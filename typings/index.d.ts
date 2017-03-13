@@ -1,5 +1,4 @@
-/// <reference path="globals/url/index.d.ts" />
-/// <reference path="globals/whatwg-fetch/index.d.ts" />
+/// <reference path="globals/jquery/index.d.ts" />
 /// <reference path="modules/aurelia-binding/index.d.ts" />
 /// <reference path="modules/aurelia-bootstrapper/index.d.ts" />
 /// <reference path="modules/aurelia-dependency-injection/index.d.ts" />
