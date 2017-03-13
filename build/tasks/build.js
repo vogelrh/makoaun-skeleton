@@ -28,7 +28,7 @@ gulp.task('build-system-client', () => {
     .pipe(changed(paths.client.output, {extension: '.ts'}))
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(typescriptCompiler())
-    .pipe(sourcemaps.write('.', {includeContent: false, sourceRoot: '/src'}))
+    .pipe(sourcemaps.write('.', {includeContent: false, sourceRoot: '../src'}))
     .pipe(gulp.dest(paths.client.output));
 });
 
@@ -45,7 +45,7 @@ gulp.task('build-system-server', () => {
     .pipe(changed(paths.server.output, {extension: '.ts'}))
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(typescriptCompilerS())
-    .pipe(sourcemaps.write('.', {includeContent: false, sourceRoot: '/src'}))
+    .pipe(sourcemaps.write('.', {includeContent: false, sourceRoot: '../src'}))
     .pipe(gulp.dest(paths.server.output));
 });
 
