@@ -17,6 +17,6 @@ console.log('apipref', config.get('server.apiUriPrefix'))
 let port = config.get('server.port');
 console.log(process.cwd(), __dirname);
 app.use(logger());
-app.use(mount(config.get('server.apiUriPrefix'), api));
+app.use(mount(config.get<string>('server.apiUriPrefix'), api));
 app.use(mount(aurelia));
 app.listen(port, () => {console.log(`Server running on port ${port}`)});

@@ -13,7 +13,7 @@ gulp.task('browser-sync', () => {
   browserSync.init(null, {
 		proxy: "http://localhost:" + config.server.port,
         files: ["dist/client/**/*.*"],
-        browser: "google chrome",
+        browser: "chrome",
         port: config.server.browserProxyPort
 	});
 });
