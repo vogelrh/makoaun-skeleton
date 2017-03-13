@@ -9,11 +9,16 @@ function reportChange(event) {
   console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
 }
 
+var os = require('os');
+var browser = os.platform() === 'linux' ? 'google-chrome' : (
+  os.platform() === 'darwin' ? 'google chrome' : (
+  os.platform() === 'win32' ? 'chrome' : 'firefox'));
+
 gulp.task('browser-sync', () => {
   browserSync.init(null, {
 		proxy: "http://localhost:" + config.server.port,
         files: ["dist/client/**/*.*"],
-        browser: "chrome",
+        browser: {app: browser},
         port: config.server.browserProxyPort
 	});
 });
