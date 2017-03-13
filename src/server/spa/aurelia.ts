@@ -4,9 +4,8 @@
  * This module will explicitly serve an Aurilea application. It generates
  * its own starting html code (equivalent to index.html).
  */
-import * as Koa from "koa";
-import * as StaticFiles from "koa-static";
-import * as config from "config";
+import * as Koa from 'koa';
+import * as StaticFiles from 'koa-static';
 
 const aurelia = new Koa();
 
@@ -41,9 +40,7 @@ aurelia.use(StaticFiles('.'));
 aurelia.use(async (ctx, next) => {
   if (ctx.url === '/' || ctx.url === '/index.html') {
     ctx.body = INDEX_HTML;
-    console.log(__dirname);
   }
 });
 
-
-export = aurelia
+export = aurelia;
