@@ -6,6 +6,7 @@ module.exports = {
         "**/*.html!text",
         "**/*.css!text"
       ],
+      "excludes": ["server/**/*.js"],
       "options": {
         "inject": true,
         "minify": true,

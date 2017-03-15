@@ -1,4 +1,4 @@
-import * as config from './../config';
+import * as config from './../app-config';
 import { autoinject } from 'aurelia-framework';
 import * as $ from 'jquery';
 

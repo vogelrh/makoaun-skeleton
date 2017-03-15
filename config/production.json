@@ -1,0 +1,6 @@
+{
+      "server": {
+    "staticRoot": "/",
+    "port": 3030
+  }
+}

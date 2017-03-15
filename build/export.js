@@ -3,7 +3,6 @@
 // for production.
 module.exports = {
   'list': [
-    'index.html',
     'config.js',
     'favicon.ico',
     'LICENSE',

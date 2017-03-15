@@ -1,8 +1,8 @@
 // import {computedFrom} from 'aurelia-framework';
 
 export class Welcome {
-  firstName;
-  lastName;
+  public firstName;
+  public lastName;
   
   public heading = 'Welcome to "MAKOAUN Stack" Seleton Appplication';
 

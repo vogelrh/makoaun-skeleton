@@ -6,22 +6,21 @@
  */
 import * as Koa from 'koa';
 import * as StaticFiles from 'koa-static';
-
+import * as config from 'config';
 const aurelia = new Koa();
-
 const INDEX_HTML = `
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Aurelia</title>
+    <title>${config.get('app.appName')}</title>
     <link rel="stylesheet" href="jspm_packages/npm/font-awesome@4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body aurelia-app="main">
     <div class="splash">
-      <div class="message">Aurelia Navigation Skeleton</div>
+      <div class="message">${config.get('app.splashText')}</div>
       <i class="fa fa-spinner fa-spin"></i>
     </div>
     <script src="jspm_packages/system.js"></script>

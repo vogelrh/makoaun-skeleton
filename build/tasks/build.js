@@ -70,7 +70,7 @@ gulp.task('build-css', () => {
 gulp.task('build-images', () => {
   return gulp.src(paths.client.images)
     .pipe(changed(paths.client.output))
-    .pipe(gulp.dest(paths.client.output))
+    .pipe(gulp.dest(paths.client.imageOut))
     .pipe(browserSync.stream());
 });
 // this task calls the clean task (located
@@ -97,7 +97,7 @@ gulp.task('build-server', (callback) => {
 //build client and server
 gulp.task('build', (callback) => {
   return runSequence(
-    ['build-system-client', 'build-system-server'],
+    ['build-client', 'build-server'],
     callback
   );
 });

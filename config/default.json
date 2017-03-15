@@ -4,5 +4,9 @@
     "port": 3030,
     "browserProxyPort" : 3080,
     "apiUriPrefix": "/api/v1/"
+  },
+  "app": {
+    "appName": "MAKOAUN Skeleton",
+    "splashText": "Loading MAKOUAN Skeleton"
   }
 }

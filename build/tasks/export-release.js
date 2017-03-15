@@ -14,6 +14,7 @@ function getBundles() {
   for (let b in bundles.bundles) {
     bl.push(b + '*.js');
   }
+  console.log(bl)
   return bl;
 }
 
@@ -42,19 +43,34 @@ function normalizeExportPaths() {
 
 // deletes all files in the output path
 gulp.task('clean-export', function() {
-  return gulp.src([ paths.exportSrv ])
+  return gulp.src([ paths.client.exportSrv ])
     .pipe(vinylPaths(del));
 });
 
-gulp.task('export-copy', function() {
+gulp.task('export-copy-client', function() {
   return gulp.src(getExportList(), { base: '.' })
-    .pipe(gulp.dest(paths.exportSrv));
+    .pipe(gulp.dest(paths.client.exportSrv));
+});
+
+gulp.task('export-copy-images', function() {
+  return gulp.src(paths.client.exportImg,{ base: '.' })
+    .pipe(gulp.dest(paths.client.exportSrv));
+});
+
+gulp.task('export-copy-server', function() {
+  return gulp.src(paths.server.exportSrc)
+    .pipe(gulp.dest(paths.server.exportSrv));
+});
+
+gulp.task('export-copy-json', function() {
+  return gulp.src(['./package.json', './config/*.json'],{ base: '.' })
+    .pipe(gulp.dest(paths.client.exportSrv));
 });
 
 gulp.task('export-normalized-resources', function() {
   return normalizeExportPaths().then(normalizedPaths => {
     return gulp.src(normalizedPaths, { base: '.' })
-      .pipe(gulp.dest(paths.exportSrv));
+      .pipe(gulp.dest(paths.client.exportSrv));
   });
 });
 
@@ -64,7 +80,10 @@ gulp.task('export', function(callback) {
     'bundle',
     'clean-export',
     'export-normalized-resources',
-    'export-copy',
+    'export-copy-client',
+    'export-copy-images',
+    'export-copy-server',
+    'export-copy-json',
     callback
   );
 });
