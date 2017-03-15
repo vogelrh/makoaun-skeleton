@@ -5,18 +5,17 @@ import * as $ from 'jquery';
 @autoinject
 export class DataService {
 
-  echo(messageToEcho: string) {
+  public echo(messageToEcho: string) {
     return this.PostRequest('api/v1/utility/echo', {text: messageToEcho});
   }
 
-  SystemStuff () {
+  public SystemStuff () {
     return this.GetRequest('api/v1/utility/stuff');
   }
 
-
   //#region Helper Methods
 
-    GetRequest(url) {
+  private  GetRequest(url) {
         return $.ajax({
             url: config.ajaxSettings.baseURL + url,
             type: 'GET',
@@ -25,7 +24,7 @@ export class DataService {
         });
     }
 
-    PutRequest(url, payload) {
+ private  PutRequest(url, payload) {
         return $.ajax({
             url: config.ajaxSettings.baseURL + url,
             data: JSON.stringify(payload),
@@ -33,10 +32,10 @@ export class DataService {
             type: 'PUT',
             xhrFields: config.ajaxSettings.xhrFields,
             dataType: config.ajaxSettings.jsonType
-        })
+        });
     }
 
-    PostRequest(url, payload) {
+private   PostRequest(url, payload) {
         return $.ajax({
             url: config.ajaxSettings.baseURL + url,
             data: JSON.stringify(payload),
@@ -44,27 +43,26 @@ export class DataService {
             type: 'POST',
             xhrFields: config.ajaxSettings.xhrFields,
             dataType: config.ajaxSettings.jsonType
-        })
+        });
     }
 
-    DeleteRequest(url) {
+ private   DeleteRequest(url) {
         return $.ajax({
             dataType: config.ajaxSettings.jsonType,
             url: config.ajaxSettings.baseURL + url,
             type: 'DELETE',
-            xhrFields: config.ajaxSettings.xhrFields,
-        })
+            xhrFields: config.ajaxSettings.xhrFields
+        });
     }
 
-    DeleteRequestWithPayload(url, payload) {
+ private   DeleteRequestWithPayload(url, payload) {
         return $.ajax({
             dataType: config.ajaxSettings.jsonType,
             url: config.ajaxSettings.baseURL + url,
             data: JSON.stringify(payload),
             contentType: 'application/json',
             type: 'DELETE',
-            xhrFields: config.ajaxSettings.xhrFields,
-        })
+            xhrFields: config.ajaxSettings.xhrFields
+        });
     }
-
 }

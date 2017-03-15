@@ -3,9 +3,7 @@
 export class Welcome {
   public firstName;
   public lastName;
-  
   public heading = 'Welcome to "MAKOAUN Stack" Seleton Appplication';
-
 
   // Getters can't be directly observed, so they must be dirty checked.
   // However, if you tell Aurelia the dependencies, it no longer needs to dirty check the property.
@@ -16,8 +14,6 @@ export class Welcome {
     return `${this.firstName} ${this.lastName}`;
   }
 }
-
-
 
 export class UpperValueConverter {
   public toView(value) {
