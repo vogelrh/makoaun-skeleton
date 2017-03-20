@@ -74,6 +74,16 @@ gulp.task('export-normalized-resources', function() {
   });
 });
 
+gulp.task('export-server', (callback) => {
+  return runSequence(
+    'clean-export',
+    'build-server',
+    'export-copy-server',
+    'export-copy-json',
+    callback
+  );
+});
+
 // use after prepare-release
 gulp.task('export', function(callback) {
   return runSequence(
