@@ -1,3 +1,4 @@
+/* tslint:disable:no-var-requires */
 /* tslint:disable:no-console */
 /**
  *  Web Server that serves an Aurelia SPA and serves the REST API
@@ -9,6 +10,7 @@ import * as mount from 'koa-mount';
 import * as logger from 'koa-logger';
 import * as aurelia from './spa/aurelia';
 import * as api from './api/router';
+require('dotenv').config();
 
 const app = new Koa();
 

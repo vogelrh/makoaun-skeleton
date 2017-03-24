@@ -1,34 +1,60 @@
+/* tslint:disable:no-var-requires */
 /**
- * Controller that retrieves User information from LDAP or from MarkLogic
- * TODO - figure out how to deal with export a class.
+ * Service that retrieves User information from LDAP.
+ * 
  */
-const proxy = require('./proxyRequest');
+const ActiveDirectory = require('activedirectory');
 
-
-const findById = (id: string) => {
-  return new Promise((resolve, reject) => {
-    let result = {
-      userName: 'BobbyV',
-      principal: id,
-      id: 'NB88843'
-    };
-    console.log("Principal: " + id);
-    const options = {
-      hostname: 'irwebdev.intranet.dow.com'
-      , path: '/adservice/api/ActiveDirectory/User?searchTerm=nb88843'
-    };
-    // proxy(id, options).then((res) => {
-    //   console.log(JSON.stringify(res));
-    //   resolve(result);
-    // }).catch((err) => reject(err));
-    resolve(result);
+/**
+ * Looks up the username in active directory
+ * @param principal - the user's principal returned from the kerberos exchange.
+ * @param callback - optional callback function. If it is supplied then the
+ * function is used in the classic callback fashion. If no callback is 
+ * specified then the function returns a promise.
+ */
+const findById = (principal: string, callback?: Function) => {
+  let ad = new ActiveDirectory({
+    url: process.env.AD_URL,
+    baseDN: 'ou=Dow Users, dc=dow, dc=com',
+    username: process.env.AD_USER,
+    password: process.env.AD_PASS
   });
-};
+  let sAMAccountName = principal ? principal.split('@')[0] : '';
 
-const test = () => console.log("teest");
+  if (callback) {
+    ad.findUser(sAMAccountName, (err, user) => {
+      if (user) {
+        // add id field to user based on sAMAccountName
+        user.id = user.sAMAccountName;
+        user.principal = principal; // required for constrained delegation
+      }
+      callback(err, user);
+      return;
+    });
+  } else {
+    return new Promise((resolve, reject) => {
+      try {
+        ad.findUser(sAMAccountName, (err, user) => {
+          if (err) {
+            reject(err);
+          } else {
+            if (user) {
+              // add id field to user based on sAMAccountName
+              user.id = user.sAMAccountName;
+              user.principal = principal; // required for constrained delegation
+              resolve(user);
+            } else {
+              reject(`User ${sAMAccountName} not found.`);
+            }
+          }
+        });
+      } catch (e) {
+        reject(e);
+      }
+    });
+  }
+};
 
 export = {
-  findById: findById,
-  test: test
+  findById: findById
 };
-

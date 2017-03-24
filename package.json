@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@types/config": "0.0.32",
+    "@types/dotenv": "^2.0.20",
     "@types/koa": "^2.0.38",
     "@types/koa-bodyparser": "^3.0.23",
     "@types/koa-logger": "^2.0.2",
@@ -33,7 +34,9 @@
     "@types/koa-passport": "^2.0.4",
     "@types/koa-router": "^7.0.21",
     "@types/koa-static": "^2.0.22",
+    "activedirectory": "^0.7.2",
     "config": "^1.25.1",
+    "dotenv": "^4.0.0",
     "kerberos": "0.0.23",
     "koa": "^2.0.0-alpha.8",
     "koa-bodyparser": "^3.2.0",

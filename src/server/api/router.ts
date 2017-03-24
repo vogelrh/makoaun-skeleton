@@ -1,3 +1,4 @@
+/* tslint:disable:no-var-requires */
 /**
  * Koa app that handles the application API routes and authorization.
  * This module is mounted by the main server app.
@@ -7,7 +8,7 @@ import * as Koa from 'koa';
 import * as Router from 'koa-router';
 import * as parser from 'koa-bodyparser';
 import * as passport from 'koa-passport';
-const authSetup =require('./authSetup');
+const authSetup = require('./authSetup');
 const utility = require('./controllers/utility');
 
 const api = new Koa();

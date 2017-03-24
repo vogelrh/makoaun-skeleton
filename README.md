@@ -1,22 +1,44 @@
 # MAKOAUN-Skeleton (typescript)
 
-An adaptaition of the MEAN stack, this web application skeleton replaces MongoDb with MarkLogic NoSQL, Express with Koa, Angular.js with Aurelia, and requires
-Node.js v7.7.2 or later.
+An adaptaition of the MEAN stack, this web application skeleton replaces MongoDb with MarkLogic NoSQL, Express with Koa 2, Angular.js with Aurelia, and requires Node.js v7.7.2 or later. 
+
+The skeleton consists of two parts; the Aureliea client web front-end and a Koa-Node based
+server backend. 
+
+The server consists of two components. One component is responsible for serving the static Aurelia client content and
+the second component provides the REST api for the web font-end application.
+
+The skeleton is designed to work in an enterprise environment which uses kerberos and Active Directory for authentication and
+authorization. However, the skeleton utilizes Passport to handle authentication so other authentication strategies can be easily
+supported.
 
 ## Dev Notes
 
-This is a work in progress...
+This skeleton project is a work in progress...
 
-Node: The backend app uses Koa 2.x which uses the Async - Await construct. Node v7.7.2 natively supports Async - Await without the use of the -harmony
+**Node:** The backend app uses Koa 2.x which uses the Async - Await construct. Node v7.7.2 natively supports Async - Await without the use of the -harmony
 flag.
 
-Typings: The Aurelia skeleton that the front-end code is based on uses the `npm typings` mechanism for the TypeScript declaration files while the backend
+**Client Configuration:** The Aurelia client uses the config.js file. **NOTE currently there is some work still needed with the gulp export logic. After running the export, the config.js has to be manually modified. Line 5 has to be modified from `"*": "dist/client/*"` to `"*": "*"`.**
+
+**Server Configuration:** The server component uses node-config for non-sensitive information. The config files are in the `config` directory. Sensitive information such as the active directory credentials are passed in via a .env file (not in source control). The basic skeleton uses the following environmental variables:
+  
+1. AD_USER
+2. AD_PASS
+3. AD_URL
+
+**Kerberos:** The passport-negotiate kerberos strategy does NOT currently work on a Windows server. While the underlying kerberos npm 
+package can handle a Windows environment, the different methods required for Windows are not implemented in the 
+passport-negotiate module. Also, currently only the REST api calls require authentication, and kerberos constrained delegation is a work in progress.
+
+
+**Typings:** The Aurelia skeleton that the front-end code is based on uses the `npm typings` mechanism for the TypeScript declaration files while the backend
 code is using the npm @types mechanism for distributing the declaration files. That plan is to move away from `npm typings` once the Aurelia declaration 
 files are available in npm.
 
 ## Running The App
 
-The following directions are taken from the Aurelia JSPM skeleton app Readme:
+The following directions are taken from the Aurelia JSPM skeleton app Readme and are modified for this project:
 
 To run the app, follow these steps.
 

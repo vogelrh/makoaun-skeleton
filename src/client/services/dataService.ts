@@ -9,8 +9,12 @@ export class DataService {
     return this.PostRequest('api/v1/utility/echo', {text: messageToEcho});
   }
 
-  public SystemStuff () {
+  public systemStuff () {
     return this.GetRequest('api/v1/utility/stuff');
+  }
+
+    public externalStuff () {
+    return this.GetRequest('api/v1/utility/dhop');
   }
 
   //#region Helper Methods

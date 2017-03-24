@@ -2,7 +2,7 @@ System.config({
   defaultJSExtensions: true,
   transpiler: "traceur",
   paths: {
-    "*": "dist/client/*",
+    "*": "*",
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
@@ -202,31 +202,6 @@ System.config({
       "indexof": "npm:indexof@0.0.1"
     }
   },
-  depCache: {
-    "api-test.js": [
-      "aurelia-framework",
-      "./services/dataService"
-    ],
-    "app.js": [
-      "./app-config"
-    ],
-    "blur-image.js": [
-      "aurelia-framework"
-    ],
-    "main.js": [
-      "bootstrap"
-    ],
-    "services/dataService.js": [
-      "./../app-config",
-      "aurelia-framework",
-      "jquery"
-    ],
-    "users.js": [
-      "aurelia-framework",
-      "aurelia-fetch-client",
-      "fetch"
-    ]
-  },
   bundles: {
     "dist/app-build.js": [
       "api-test.html!github:systemjs/plugin-text@0.0.8.js",
@@ -335,6 +310,31 @@ System.config({
       "npm:aurelia-templating@1.3.0/aurelia-templating.js",
       "npm:jquery@2.2.4.js",
       "npm:jquery@2.2.4/dist/jquery.js"
+    ]
+  },
+  depCache: {
+    "api-test.js": [
+      "aurelia-framework",
+      "./services/dataService"
+    ],
+    "app.js": [
+      "./app-config"
+    ],
+    "blur-image.js": [
+      "aurelia-framework"
+    ],
+    "main.js": [
+      "bootstrap"
+    ],
+    "services/dataService.js": [
+      "./../app-config",
+      "aurelia-framework",
+      "jquery"
+    ],
+    "users.js": [
+      "aurelia-framework",
+      "aurelia-fetch-client",
+      "fetch"
     ]
   }
 });

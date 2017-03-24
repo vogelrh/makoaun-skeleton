@@ -173,3 +173,11 @@ div.au-stagger {
     opacity: 1;
   }
 }
+/* App specific */
+
+.api-result {
+    height: 250px;
+    font-family: "Courier New",  Courier, monospace;
+    border: 1px solid gray;
+    overflow: scroll;
+}

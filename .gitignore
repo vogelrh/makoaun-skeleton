@@ -10,3 +10,4 @@ test/e2e/dist
 /typings
 /export
 *.log
+*.env
