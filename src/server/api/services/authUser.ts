@@ -18,7 +18,6 @@ const ActiveDirectory = require('activedirectory');
    */
   public id: string;
   public dn: string;
-  public userPrincipalName: string;
   public sAMAccountName: string;
   public mail: string;
   public sn: string;
@@ -26,17 +25,16 @@ const ActiveDirectory = require('activedirectory');
   public displayName: string;
   public principal: string;
 
-  constructor(adObj: any, principal: string) {
+  constructor(adObj: any) {
     if (adObj) {
       this.id = adObj.sAMAccountName;
       this.dn = adObj.dn;
-      this.userPrincipalName = adObj.userPrincipalName;
+      this.principal = adObj.userPrincipalName;
       this.sAMAccountName = adObj.sAMAccountName;
       this.mail = adObj.mail;
       this.sn = adObj.sn;
       this.givenName = adObj.givenName;
       this.displayName = adObj.displayName;
-      this.principal = principal;
     }
   }
 };
@@ -59,30 +57,28 @@ export class User {
       password: process.env.AD_PASS
     });
 
-    let sAMAccountName = principal ? principal.split('@')[0] : '';
-
     if (callback) {
-      ad.findUser(sAMAccountName, (err, aduser) => {
+      ad.findUser(principal, (err, aduser) => {
         if (aduser) {
-          let user = new UserInstance(aduser, principal);
+          let user = new UserInstance(aduser);
           callback(err, user);
         } else {
-          callback(`User ${sAMAccountName} not found.`, null);
+          callback(`User ${principal} not found.`, null);
         }
         return;
       });
     } else {
       return new Promise((resolve, reject) => {
         try {
-          ad.findUser(sAMAccountName, (err, aduser) => {
+          ad.findUser(principal, (err, aduser) => {
             if (err) {
               reject(err);
             } else {
               if (aduser) {
-                let user = new UserInstance(aduser, principal);
+                let user = new UserInstance(aduser);
                 resolve(user);
               } else {
-                reject(`User ${sAMAccountName} not found.`);
+                reject(`User ${principal} not found.`);
               }
             }
           });
