@@ -6,11 +6,12 @@
  * 
  */
 import * as Router from 'koa-router';
-const proxyHTTP = require('../services/proxyRequest')
+import {ProxyRequest} from '../services/proxyRequest';
+// import * as Passport from 'koa-passport'; // Note: the @types/koa-passport file doesn't work for importing type
 
-// import * as koaPassport from 'koa-passport'; Note: the @types/koa-passport file doesn't work
+let proxyHTTP = new ProxyRequest();
 
-export = (router: Router, passport: any, baseUri: string) => {
+const utilityRouter = (router: Router, passport: any, baseUri: string) => {
 
   /**
    * Post: returns the text sent in the body of the request after upper casing
@@ -46,7 +47,7 @@ export = (router: Router, passport: any, baseUri: string) => {
           hostname: 'irwebdev.intranet.dow.com',
           path: '/adservice/api/ActiveDirectory/User?searchTerm=nb88843'
         };
-        let result = await proxyHTTP.get(ctx.state.user.principal, opts);
+        let result = await proxyHTTP.userGet(ctx.state.user.principal, opts);
         ctx.body = {
           response: {
             user: result
@@ -60,3 +61,5 @@ export = (router: Router, passport: any, baseUri: string) => {
 
   return router;
 };
+
+export = utilityRouter;

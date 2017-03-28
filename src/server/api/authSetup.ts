@@ -1,7 +1,7 @@
 /* tslint:disable:no-console */
 /* tslint:disable:no-var-requires */
 const NegotiateStrategy = require('passport-negotiate').Strategy;
-const User = require('./services/authUser');
+import {User} from './services/authUser';
 
 const strategyOptions = {
   passReqToCallback: true,
@@ -9,7 +9,7 @@ const strategyOptions = {
   verbose: true
 };
 
-export = (app, passport) => {
+const authsetup = (app: any, passport: any) => {
   passport.serializeUser(function (user, done) {
     done(null, user.sAMAccountName);
   });
@@ -29,3 +29,5 @@ export = (app, passport) => {
   app.use(passport.initialize());
   console.log('Initialized Kerberos strategy');
 };
+
+export = authsetup;
